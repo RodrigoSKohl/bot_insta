@@ -1,8 +1,8 @@
 const { IgApiClient } = require('instagram-private-api');
 require('dotenv').config();
 
-// Função para enviar uma mensagem de "oi" para um usuário específico
-const sendHiMessage = async (username) => {
+// Função para enviar uma mensagem para um usuário específico
+const sendHiMessage = async (username, message) => {
     try {
         const ig = new IgApiClient();
         ig.state.generateDevice(process.env.IG_USERNAME);
@@ -15,23 +15,24 @@ const sendHiMessage = async (username) => {
             throw new Error(`Usuário ${username} não encontrado.`);
         }
 
-        // Enviar a mensagem "oi"
-        const message = 'oi';
+        // Enviar a mensagem para o usuário alvo
         await ig.entity.directThread([targetUser.pk]).broadcastText(message);
-        console.log(`Mensagem "oi" enviada com sucesso para ${username}`);
+        console.log(`Mensagem "${message}" enviada com sucesso para ${username}`);
     } catch (error) {
         console.error(`Erro ao enviar mensagem para ${username}: ${error.message}`);
     }
 };
 
-// Captura o argumento da linha de comando
+// Captura os argumentos da linha de comando
 const args = process.argv.slice(2);
 const targetUsername = args[0];
+const message = args[1];
 
-if (!targetUsername) {
-    console.error('Por favor, forneça um nome de usuário como argumento.');
+if (!targetUsername || !message) {
+    console.error('Por favor, forneça um nome de usuário e uma mensagem como argumentos.');
+    console.error('Uso: node seuArquivo.js nomeDeUsuario mensagem');
     process.exit(1);
 }
 
 // Chame a função para enviar a mensagem para o usuário específico
-sendHiMessage(targetUsername);
+sendHiMessage(targetUsername, message);

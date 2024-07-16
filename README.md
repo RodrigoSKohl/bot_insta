@@ -9,7 +9,7 @@ Exemplo de boot de SPAM de mensagens para o Instagram, utilizando a biblioteca *
 ## Instalação
 - Rodar o comando ```npm install```
 - Pra iniciar o bot, use ```node bot.js```
-- Para testar envio de mensagens use ```node sendtest.js username```[^2]
+- Para testar envio de mensagens use ```node sendtest.js <username> <mensagem>```[^2]
 
 [^1]: Recomendado usar proxy.
 [^2]: Username do IG sem @.
