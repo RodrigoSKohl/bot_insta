@@ -1,7 +1,7 @@
 # SPAM BOT INSTAGRAM
 Exemplo de boot de SPAM de mensagens para o Instagram, utilizando a biblioteca **[instagram-private-api](https://www.npmjs.com/package/instagram-private-api)**
 ## Configuração
-- Renomeie [env.example](/env.example) para **.env**;
+- Renomeie [.env.example](/.env.example) para **.env**;
 - Modifique as variaveis de acordo com a necessidade[^1];
 - No arquivo [/messagelist](/messagelist.txt) são colocadas as mensagens que serão enviadas para os usuários, uma por linha. No envio elas são carregadas e é enviada uma mensagem aleatória das quais estão adicionadas na lista;
 - No arquivo [targetUsernames](/targetUsernames.txt) são adicionados os usuários alvo, todos usuários precisam ser com perfil aberto, visto que o bot ira carregar a lista de seguidores do usuário para começar a enviar as mensagens
